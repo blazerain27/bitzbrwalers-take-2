@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blitz Blasters 3D: Story Mode</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff00ff;
+    }
+    .console {
+      background: #111;
+      border: 2px solid #444;
+      padding: 20px;
+      white-space: pre-wrap;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Blitz Blasters 3D: Story Mode</h1>
+  <div class="console" id="console"></div>
+
+  <script>
+    // Helper log function
+    function log(message) {
+      document.getElementById("console").textContent += message + "\n";
+    }
+
+    // Story intro
+    function introStory() {
+      log("📜 [YEAR: 3098]");
+      log("The Neon Vortex system is collapsing.");
+      log("Rogue AI forces have taken control of major zones.");
+      log("You, the last Blitz Blaster, must restore balance...");
+      log("Loading mission data...");
+    }
+
+    // Brawler Select
+    const brawlers = [
+      {
+        name: "Blitz",
+        role: "Assassin",
+        rarity: "Legendary",
+        super: "Phase Break",
+        intro: "Blitz is a shadow in the neon. Fast. Deadly. Silent."
+      },
+      {
+        name: "Tempra",
+        role: "Elemental Mage",
+        rarity: "Mythic",
+        super: "Weather Storm",
+        intro: "Tempra channels nature's wrath through cyber elements."
+      },
+      {
+        name: "Tankz",
+        role: "Heavy Mechanic",
+        rarity: "Epic",
+        super: "Mini Turret",
+        intro: "Tankz is slow but unstoppable — a walking war machine."
+      },
+      {
+        name: "Glitch",
+        role: "Hacker Phantom",
+        rarity: "Legendary",
+        super: "Firewall Phase",
+        intro: "Glitch corrupts the system — and their enemies — from within."
+      }
+    ];
+
+    function chooseBrawler(name) {
+      const b = brawlers.find(b => b.name === name);
+      if (b) {
+        log(`\n🧬 Selected Brawler: ${b.name} [${b.role}]`);
+        log(`✨ ${b.intro}`);
+        log(`Super Ability: ${b.super}`);
+        return b;
+      } else {
+        log("❌ Brawler not found.");
+      }
+    }
+
+    // Zones
+    const zones = [
+      {
+        name: "Junkyard City",
+        quest: "Defeat 5 Raider Bots",
+        event: "A drone swarm descends from the smoke-filled sky.",
+        enemy: "Raider Bot",
+        reward: "+200 Coins"
+      },
+      {
+        name: "Sky Spires",
+        quest: "Disable 3 Storm Turrets",
+        event: "Storm Mechs rain energy blasts from the floating towers.",
+        enemy: "Storm Mech",
+        reward: "+1 Super Gadget"
+      },
+      {
+        name: "Core Complex",
+        quest: "Defeat Coremind X",
+        event: "Coremind’s digital voice echoes: 'Flesh is obsolete...'",
+        enemy: "Coremind X (AI Overlord)",
+        reward: "Legendary Star Code"
+      }
+    ];
+
+    function exploreZone(zone) {
+      log(`\n🌆 Zone: ${zone.name}`);
+      log(`⚠️  ${zone.event}`);
+      log(`🗡️  Mission: ${zone.quest}`);
+      log(`⚔️  Battle vs ${zone.enemy}...`);
+      log(`✅ Zone cleared!`);
+      log(`🎁 Reward Unlocked: ${zone.reward}`);
+    }
+
+    // Adventure
+    function startAdventure() {
+      introStory();
+
+      const player = chooseBrawler("Blitz");
+      log(`\n🌍 Mission Begins: Entering the Neon Vortex...\n`);
+
+      zones.forEach(zone => {
+        exploreZone(zone);
+      });
+
+      log("\n🏆 MISSION COMPLETE: Peace restored (for now)...");
+    }
+
+    startAdventure();
+  </script>
+</body>
+</html>
